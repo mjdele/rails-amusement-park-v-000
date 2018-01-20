@@ -1,0 +1,13 @@
+<% if flash[:notice] %>
+  <div><%= flash[:notice] %></div>
+<% end %>
+
+
+<h3> <%= "ADMIN" if @user.admin %> </h3>
+<h4> Hi, <%= @user.name %> </h4>
+<h4> Height: <%= @user.height %> </h4>
+<h4> Mood: <%= @user.mood %> </h4>
+<h4> Tickets: <%= @user.tickets %> </h4>
+
+
+

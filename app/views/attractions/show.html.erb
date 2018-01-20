@@ -1,0 +1,18 @@
+<h4>This is the attraction show page for <%=@attraction.name%> </h4>
+
+<h4> Name: <%= @attraction.name %> </h4>
+<h4> Ticket Requirement: <%= @attraction.tickets %> </h4>
+<h4> Height Requirement: <%= @attraction.min_height %> </h4>
+<h4> Nausea Rating: <%= @attraction.nausea_rating %> </h4>
+<h4> Happiness Rating: <%= @attraction.happiness_rating %> </h4>
+<br>
+<h4><%= link_to "Edit Attraction", edit_attraction_path(@attraction) if @user.admin %></h4>
+
+<% if !@user.admin %>
+  <%= form_tag ({controller: 'rides', action: 'new', method: 'post'}) do %>
+    <input name="user_id" type="hidden" value=<%= session[:user_id]%>>
+    <input name="attraction_id" type="hidden" value=<%= params["id"] %>>
+    <input type=submit value='Go on this ride'>
+  <% end %>
+<% end %>
+

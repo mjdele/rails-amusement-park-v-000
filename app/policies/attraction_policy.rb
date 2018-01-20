@@ -1,0 +1,3 @@
+   class AttractionPolicy < ApplicationPolicy
+
+   end
