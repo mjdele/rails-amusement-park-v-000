@@ -6,9 +6,10 @@
 <h4> Nausea Rating: <%= @attraction.nausea_rating %> </h4>
 <h4> Happiness Rating: <%= @attraction.happiness_rating %> </h4>
 <br>
-<h4><%= link_to "Edit Attraction", edit_attraction_path(@attraction) if @user.admin %></h4>
 
-<% if !@user.admin %>
+<% if @user.admin %>
+  <h4><%= link_to "Edit Attraction", edit_attraction_path(@attraction) %></h4>
+<% else %>
   <%= form_tag ({controller: 'rides', action: 'new', method: 'post'}) do %>
     <input name="user_id" type="hidden" value=<%= session[:user_id]%>>
     <input name="attraction_id" type="hidden" value=<%= params["id"] %>>

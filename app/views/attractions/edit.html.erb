@@ -1,14 +1,5 @@
 <h2>Edit Attraction</h2>
-<%= form_for @attraction, controller: 'attractions', action: 'update' do |f| %>
-  Name: <%= f.text_field :name %>
-  <br>
-  Minimum Height: <%= f.text_field :min_height %>
-  <br>
-  Happiness Rating: <%= f.text_field :happiness_rating %>
-  <br>
-  Nausea Rating: <%= f.text_field :nausea_rating %>
-  <br>
-  Tickets: <%= f.text_field :tickets %>
-  <br>
-  <%= f.submit "Update Attraction" %>
-<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @attraction %>
